@@ -1,30 +1,28 @@
-class program28
-{
-     public static void main(String[] args) 
-    {
-        Logic lobj = new Logic();
-        lobj.PrintDivisibleBy2and3(20);
-    }
-}
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Scanner;
 
-class Logic
+class program31
 {
-    void PrintDivisibleBy2and3(int iNo)
+    public static void main(String[] args)
     {
-        int iCnt = 0;
+        Scanner sobj = new Scanner(System.in);
+        FileInputStream fiobj = null;
 
-        for(iCnt = 1; iCnt <=  iNo; iCnt++)
+        String Fname;
+
+        System.out.println("Enter the file name that you want to open:");
+        Fname = sobj.nextLine();
+
+        try
         {
-            if (iCnt % 2 == 0 && iCnt % 3 == 0) 
-            {
-                System.out.println("Numbers that are divisible by 2 and 3 are:"+iCnt);
-            }
+            fiobj = new FileInputStream(Fname);
+
+            System.out.println("File opened successfully");
         }
-        
+        catch(IOException e)
+        {
+            System.out.println("Unable to open file");
+        }
     }
 }
-
-
-
-
-
